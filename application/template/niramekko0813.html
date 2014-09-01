@@ -1,0 +1,328 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content"text/html; charset=UTF-8">
+<title></title>
+<style type="text/css">
+
+div.field {
+width: 450px;
+height: 320px;
+color: #000000;
+position:relative;
+left: 0px;
+top: 0px; 
+overflow: hidden;
+}
+
+div.player {
+width: 320px;
+height: 320px;
+overflow: hidden;
+}
+
+div.top {
+position:relative;
+margin: 0 auto;
+width: 900px;
+height: 190px;
+overflow: hidden;
+}
+
+</style>
+
+<!--
+jQueryRotateを使用
+https://code.google.com/p/jqueryrotate/downloads/detail?name=jQueryRotate.js
+-->
+
+<script type="text/javascript" src="/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/jQueryRotate.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+
+//コンソールの定義
+	var middle_console = $('div#middle_console');
+	var bottom_console = $('div#bottom_console');
+	bottom_console.html('<input type="image" id="okBtn" src="OKwood.png" width="200" height="100" >');
+
+//各要素のセレクタ
+	var anata = $('div#anata');
+	var aite = $('div#aite');
+	var anata_fusuma = $('div#anata_fusuma');
+	var anata_fusumaL = $('img#anata_fusumaL'), anata_fusumaR = $('img#anata_fusumaR');
+	var aite_fusuma = $('div#aite_fusuma');
+	var aite_fusumaL = $('img#aite_fusumaL'), aite_fusumaR = $('img#aite_fusumaR');
+	var title = $('img#title');
+	var daruma1 = $('img#daruma1'), daruma2 = $('img#daruma2');
+
+//ボタンの定義
+	var startBtn = $('input#start');
+	var okBtn = $('input#okBtn');
+
+//変数
+	//にらめっこ準備の長さ
+	var time = 10;
+
+	var timer1 = null;
+	var timer2 = null;
+
+	var phase = 0;
+	
+	var x = 0;
+	var y = 0;
+	
+	var counter = 0;
+	var f_anata = 0;
+	var f_aite = 0;
+	var open = 0;
+	
+	//だるまの回転数
+	var daruma_rot = 4;
+	var angle = 0;
+	var angle_plus = 3.6 * daruma_rot / time ; 	
+	
+	
+//松本さんと山極さん
+	var matsumoto = $('img#matsumoto');
+	var yamagiwa = $('img#yamagiwa');
+
+	
+//	alert ("start");
+	
+	
+/*	
+	$(this).mousemove(function(e){
+		setPosition(bar, e.clientX, 200);
+		setPosition(anata_fusumaL,  160-e.clientX, 0);
+		setPosition(anata_fusumaR, e.clientX, 0);
+		setPosition(aite_fusumaL,  160-e.clientX, 0);
+		setPosition(aite_fusumaR, e.clientX, 0);
+	});
+*/	
+//
+//ここから主なプログラム
+//グローバル変数とかわからなくて，ふすまを閉じるファンクションをスマートに定義できず，
+//したがって見づらい
+//
+//OKボタンで勝負開始カウントを始める
+	okBtn.click(function(){
+		timer1 = setInterval(function(){
+
+//Phase1　相手のふすまを閉じる
+			if (f_aite < 165) {
+				setPosition(aite_fusumaL, -160+f_aite, 0);
+				setPosition(aite_fusumaR, 320-f_aite, 0);
+				f_aite +=5;
+			}else{
+			
+//Phase2　10秒カウント だるまが回る
+//			if(phase < 1){phase += 1;}
+			if(f_aite > 160, counter < time){
+//				bottom_console.html('Phase２'); 
+				daruma1.rotate(angle);
+				daruma2.rotate(angle);
+				angle += angle_plus;
+				counter +=0.01;
+			}else{
+			
+//Phase3　あなたのふすまを閉じる
+//				if(phase < 2){phase += 1;}				
+				if (f_anata < 165) {
+					setPosition(anata_fusumaL, -160+f_anata, 0);
+					setPosition(anata_fusumaR, 320-f_anata, 0);
+					f_anata +=5;
+				}else{
+
+//Phase4　勝負する あっぷっぷボタン表示
+//					if(phase < 3){phase += 1;}
+					okBtn.replaceWith('<input type="image" id="appuppu" src="appuppu.png" width="300" height="100" >');
+//これは遊び．本来ここに完成した顔が入る
+//					matsumoto.replaceWith('<img src="zamaa.jpg" id="matsumoto" width="300" height="300" alt="あなた" hspace="10" vspace="10">');
+//					yamagiwa.replaceWith('<img src="gorilla.jpg" id="yamagiwa" width="300" height="300" alt="あいて" hspace="10" vspace="10">');
+
+//
+//とりあえずタイマーを止める
+					clearInterval(timer1);
+
+//あっぷっぷボタンで両者のふすまを開ける
+						$('input#appuppu').click(function(){
+							timer2 = setInterval(function(){
+							if (open < 165) {
+								setPosition(anata_fusumaL, -open, 0);
+								setPosition(anata_fusumaR, 160+open, 0);
+								setPosition(aite_fusumaL, -open, 0);
+								setPosition(aite_fusumaR, 160+open, 0);
+								open += 10;
+							}else{}
+							},10);		
+						});
+					return true;
+					}
+					
+			}
+			
+			}
+		},10);
+	
+	});
+	
+	
+
+//	var appuppu = $('input#appuppu');
+
+	
+	
+	
+
+	
+//	setPosition(ball, 100, 200);
+//	setPosition(bar, 100, 200);
+	
+
+//各パーツの初期座標
+	setPosition(anata, 115, 0);
+	setPosition(aite, 15, 0);
+
+	setPosition(anata_fusuma, 115, 0);
+	setPosition(anata_fusumaL,  -160, 0);
+	setPosition(anata_fusumaR, 320, 0);
+	
+	setPosition(aite_fusuma, 15, 0);
+	setPosition(aite_fusumaL,  -160, 0);
+	setPosition(aite_fusumaR, 320, 0);
+
+	setPosition(title, 200, 0);
+	setPosition(daruma1, 75, 0);
+	setPosition(daruma2, 645, 0);
+		
+	relPosition(middle_console, 0, 75);
+	
+	daruma1.rotate(angle);
+	daruma2.rotate(angle);
+
+//座標ここまで
+
+
+
+
+//位置調整関数
+	function setPosition(selector, x, y){
+		selector.css({ position:'absolute', left:x+'px', top:y+'px' });
+	}
+	
+	function relPosition(selector, x, y){
+		selector.css({ position:'relative', left:x+'px', top:y+'px' });
+	}
+	
+	function setColor(selector, x){
+		selector.css({ backgroundColor:x});
+	}
+//位置調整関数ここまで
+
+/*	
+//onChanege関数
+function onChangeValue(obj, nam, cbf, _tm){
+	if(!_tm) _tm = 100;
+	var f = function (o, n){
+		var v = o[n];
+		var t = setTimeout(
+			function (){
+				clearTimeout(t);
+				if(v != o[n]){
+					if(cbf(o, n)){
+						f(o, n);
+					}
+				}else{
+					f(o, n);
+				}
+			},
+			_tm
+		);
+	}
+	f(obj, nam);
+}
+
+
+//onChangeここまで
+	
+	function fusumaOpen(selector_L, selector_R){
+		timer = setInterval(function(){
+			setPosition(selector_L, -160-l, 0);
+			setPosition(selector_R, 320+r, 0);
+			l +=5;
+			r +=5;
+		},50);
+	}
+	
+	
+function callBack(o, n){
+	alert(state);
+	return true;
+}
+
+onChangeValue(window, 'state', callBack);
+*/
+
+});
+</script>
+</head>
+
+<body background="bg_green.gif" bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+
+<div id="top" class="top" >
+<img src="ranmagaku.png" id="title" width="500" height="180">
+<img src="daruma.png" id="daruma1" width="180" height="180">
+<img src="daruma.png" id="daruma2" width="180" height="180">
+</div>
+
+
+<!--
+<div id="field" align="center">
+<img src="matsumoto.jpg" id="player" hspace="100">
+<img src="yamagiwa.jpg" id="rival" hspace="100">
+</div>
+-->
+
+
+<table id="field_table" width="1110" border="10" bordercolor="#A0522D" align="center" valign="top" background="bg_wood.gif" style="padding:0pt 0pt 0pt 0pt;">
+    <tr><td width="450" valign="top"><div class="field">
+          <div id="anata" class="player">
+<!-- ここに自分のVideoを入れる．
+大きさは300×300．hspaceとvspaceは10-->
+	  <img src="matsumoto.jpg" id="matsumoto" width="300" height="300" alt="あなた" hspace="10" vspace="10">
+<!--自分Videoここまで-->
+	  </div>
+          <div id="anata_fusuma" class="player">
+	  <img id="anata_fusumaL"src="fusuma_red_l.png" width="160" height="320" alt="husuma">
+	  <img id="anata_fusumaR"src="fusuma_red_r.png" width="160" height="320" alt="husuma"></div>
+	  </div></td>
+    <td width="200" valign="top">
+          <div id="middle_console"><img src="vs.png" width="160" height="170"></div></td>
+    <td width="450" valign="top"><div class="field">
+          <div id="aite" class="player">
+<!-- ここに自分のVideoを入れる．
+大きさは300×300．hspaceとvspaceは10-->
+	  <img src="yamagiwa.jpg" id="yamagiwa" width="300" height="300" alt="あいて" hspace="10" vspace="10"></div>
+<!--自分Videoここまで-->
+          <div id="aite_fusuma" class="player">
+	  <img id="aite_fusumaL"src="fusuma_blue_l.png" width="160" height="320" alt="husuma">
+	  <img id="aite_fusumaR"src="fusuma_blue_r.png" width="160" height="320" alt="husuma"></div>
+          </div></td>
+    </tr>
+</table>
+
+<table width="710" border="0" align="center">
+    <tr><th width="160" valign="top"><img src="anata.png" width="160" height="88"></th>
+    <th width="390" valign="top"><div id="bottom_console"></div></th>
+    <th width="160" valign="top"><img src="aite.png" width="160" height="88"></th></tr>
+</table>
+
+
+
+
+
+
+</body>
+
+</html>
