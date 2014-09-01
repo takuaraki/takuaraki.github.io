@@ -41,12 +41,12 @@ https://code.google.com/p/jqueryrotate/downloads/detail?name=jQueryRotate.js
 $(document).ready(function(){
 
 
-//EREiE\A[EaCAiEa`
+// consoles
 	var middle_console = $('div#middle_console');
 	var bottom_console = $('div#bottom_console');
 	bottom_console.html('<input type="image" id="okBtn" src="OKwood.png" width="200" height="100" >');
 
-//aeovefCAEZEaENE^
+// selectors
 	var anata = $('div#anata');
 	var aite = $('div#aite');
 	var anata_fusuma = $('div#anata_fusuma');
@@ -56,12 +56,12 @@ $(document).ready(function(){
 	var title = $('img#title');
 	var daruma1 = $('img#daruma1'), daruma2 = $('img#daruma2');
 
-//E{E^EiCAiEa`
+// buttons
 	var startBtn = $('input#start');
 	var okBtn = $('input#okBtn');
 
-//i?ei
-	//C…CAC?C!C±eAi?CAi∑C?
+// variable
+	// The length of the time to prepare the face 
 	var time = 10;
 
 	var timer1 = null;
@@ -77,68 +77,67 @@ $(document).ready(function(){
 	var f_aite = 0;
 	var open = 0;
 	
-	//CaCEC?CAaOi]ei
+	//Daruma's rotete
 	var daruma_rot = 4;
 	var angle = 0;
 	var angle_plus = 3.6 * daruma_rot / time ; 	
 	
 	
-//eon{C?COC?eRa…C?CO
+//img matsumoto(NEEDLESS!!)
 	var matsumoto = $('img#matsumoto');
 	var yamagiwa = $('img#yamagiwa');
 
 	
 	
 //
-//C±C±CcCAeAC≫EvEcEOEaEA
-//EOEcA[EoEai?eiC?CcCICcCAC≫C≠C?ACC”C∑C?C?i￢C∂CEEtE@EiENEVEaEiC?EXE}A[EgC…iEa`C?C´C?AC
-//CμCΩC?C!C?acC√CAC￠
+// Main program
 //
-//OKE{E^EiC?euiaaJenEJEEEiEgC?enC?CE
+// OK button starts the battle
+//
 	okBtn.click(function(){
 		timer1 = setInterval(function(){
 
-//Phase1A@eaeECAC”C∑C?C?i￢C∂CE
+//Phase1 Close "aite_fusuma"
 			if (f_aite < 165) {
-				setPosition(aite_fusumaL, -160+f_aite, 0);
+				setPosition(aite_fusumaL, -160_aite, 0);
 				setPosition(aite_fusumaR, 320-f_aite, 0);
-				f_aite +=5;
+				f_aite =5;
 			}else{
 			
-//Phase2@10bJEg 
+//Phase2 Count down and Daruma rotate
 			if(f_aite > 160, counter < time){
 				daruma1.rotate(angle);
 				daruma2.rotate(angle);
-				angle += angle_plus;
-				counter +=0.01;
+				angle = angle_plus;
+				counter =0.01;
 			}else{
 			
-//Phase3@?????
+//Phase3 Close "anata_fusuma"
 				if (f_anata < 165) {
-					setPosition(anata_fusumaL, -160+f_anata, 0);
+					setPosition(anata_fusumaL, -160_anata, 0);
 					setPosition(anata_fusumaR, 320-f_anata, 0);
-					f_anata +=5;
+					f_anata =5;
 				}else{
 
-//Phase4@B?B?{^\
+//Phase4 Battle "appuppu button"
 					okBtn.replaceWith('<input type="image" id="appuppu" src="appuppu.png" width="300" height="100" >');
-//C±CICOoVC?ADn{oaC±C±C…aAe¨CμCΩaAC?i，CE
-//					matsumoto.replaceWith('<img src="zamaa.jpg" id="matsumoto" width="300" height="300" alt="C†C≫CΩ" hspace="10" vspace="10">');
-//					yamagiwa.replaceWith('<img src="gorilla.jpg" id="yamagiwa" width="300" height="300" alt="C†C￠C?" hspace="10" vspace="10">');
+//needless
+//					matsumoto.replaceWith('<img src="zamaa.jpg" id="matsumoto" width="300" height="300" alt="CCC" hspace="10" vspace="10">');
+//					yamagiwa.replaceWith('<img src="gorilla.jpg" id="yamagiwa" width="300" height="300" alt="CCC?" hspace="10" vspace="10">');
 
 //
-//C?CEC†C¶C?E^ECE}A[C?e~C?CE
+// Stop the timer
 					clearInterval(timer1);
 
-//C†C!C’C!C’E{E^EiC?ooe“CAC”C∑C?C?aJCOCE
+// Open the fusuma
 						$('input#appuppu').click(function(){
 							timer2 = setInterval(function(){
 							if (open < 165) {
 								setPosition(anata_fusumaL, -open, 0);
-								setPosition(anata_fusumaR, 160+open, 0);
+								setPosition(anata_fusumaR, 160?, 0);
 								setPosition(aite_fusumaL, -open, 0);
-								setPosition(aite_fusumaR, 160+open, 0);
-								open += 10;
+								setPosition(aite_fusumaR, 160?, 0);
+								open = 10;
 							}else{}
 							},10);		
 						});
@@ -154,7 +153,7 @@ $(document).ready(function(){
 
 	
 
-//aeEpA[EcCAeaa?c?iW
+// Position
 	setPosition(anata, 115, 0);
 	setPosition(aite, 15, 0);
 
@@ -175,24 +174,20 @@ $(document).ready(function(){
 	daruma1.rotate(angle);
 	daruma2.rotate(angle);
 
-//c?iWC±C±C?C?
 
-
-
-
-//a?iui?eAa÷ei
+//set position
 	function setPosition(selector, x, y){
-		selector.css({ position:'absolute', left:x+'px', top:y+'px' });
+		selector.css({ position:'absolute', left:x'px', top:y'px' });
 	}
 	
 	function relPosition(selector, x, y){
-		selector.css({ position:'relative', left:x+'px', top:y+'px' });
+		selector.css({ position:'relative', left:x'px', top:y'px' });
 	}
 	
 	function setColor(selector, x){
 		selector.css({ backgroundColor:x});
 	}
-//a?iui?eAa÷eiC±C±C?C?
+
 
 
 });
@@ -214,10 +209,9 @@ $(document).ready(function(){
 <table id="field_table" width="1110" border="10" bordercolor="#A0522D" align="center" valign="top" background="bg_wood.gif" style="padding:0pt 0pt 0pt 0pt;">
     <tr><td width="450" valign="top"><div class="field">
           <div id="anata" class="player">
-<!-- C±C±C…eci?CAVideoC?i，CICEAD
-eAC´C?CO300A~300ADhspaceC?vspaceCO10-->
-	  <img src="matsumoto.jpg" id="matsumoto" width="300" height="300" alt="C†C≫CΩ" hspace="10" vspace="10">
-<!--eci?VideoC±C±C?C?-->
+<!-- your video-->
+	  <img src="matsumoto.jpg" id="matsumoto" width="300" height="300" alt="CCC" hspace="10" vspace="10">
+
 	  </div>
           <div id="anata_fusuma" class="player">
 	  <img id="anata_fusumaL"src="fusuma_red_l.png" width="160" height="320" alt="husuma">
@@ -227,10 +221,10 @@ eAC´C?CO300A~300ADhspaceC?vspaceCO10-->
           <div id="middle_console"><img src="vs.png" width="160" height="170"></div></td>
     <td width="450" valign="top"><div class="field">
           <div id="aite" class="player">
-<!-- C±C±C…eci?CAVideoC?i，CICEAD
-eAC´C?CO300A~300ADhspaceC?vspaceCO10-->
-	  <img src="yamagiwa.jpg" id="yamagiwa" width="300" height="300" alt="C†C￠C?" hspace="10" vspace="10"></div>
-<!--eci?VideoC±C±C?C?-->
+<!-- rival's video-->
+	  <img src="yamagiwa.jpg" id="yamagiwa" width="300" height="300" alt="CCC?" hspace="10" vspace="10">
+	  
+	  </div>
           <div id="aite_fusuma" class="player">
 	  <img id="aite_fusumaL"src="fusuma_blue_l.png" width="160" height="320" alt="husuma">
 	  <img id="aite_fusumaR"src="fusuma_blue_r.png" width="160" height="320" alt="husuma"></div>
