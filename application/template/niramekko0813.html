@@ -35,8 +35,8 @@ jQueryRotate.js
 https://code.google.com/p/jqueryrotate/downloads/detail?name=jQueryRotate.js
 -->
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="jQueryRotate.js"></script>
+<script type="text/javascript" src="/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/jQueryRotate.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 
@@ -88,18 +88,7 @@ $(document).ready(function(){
 	var yamagiwa = $('img#yamagiwa');
 
 	
-//	alert ("start");
 	
-	
-/*	
-	$(this).mousemove(function(e){
-		setPosition(bar, e.clientX, 200);
-		setPosition(anata_fusumaL,  160-e.clientX, 0);
-		setPosition(anata_fusumaR, e.clientX, 0);
-		setPosition(aite_fusumaL,  160-e.clientX, 0);
-		setPosition(aite_fusumaR, e.clientX, 0);
-	});
-*/	
 //
 //Ç±Ç±Ç©ÇÁéÂÇ»ÉvÉçÉOÉâÉÄ
 //ÉOÉçÅ[ÉoÉãïœêîÇ∆Ç©ÇÌÇ©ÇÁÇ»Ç≠ÇƒÅCÇ”Ç∑Ç‹Çï¬Ç∂ÇÈÉtÉ@ÉìÉNÉVÉáÉìÇÉXÉ}Å[ÉgÇ…íËã`Ç≈Ç´Ç∏ÅC
@@ -116,26 +105,22 @@ $(document).ready(function(){
 				f_aite +=5;
 			}else{
 			
-//Phase2Å@10ïbÉJÉEÉìÉg ÇæÇÈÇ‹Ç™âÒÇÈ
-//			if(phase < 1){phase += 1;}
+//Phase2�@10�b�J�E���g ����܂����
 			if(f_aite > 160, counter < time){
-//				bottom_console.html('PhaseÇQ'); 
 				daruma1.rotate(angle);
 				daruma2.rotate(angle);
 				angle += angle_plus;
 				counter +=0.01;
 			}else{
 			
-//Phase3Å@Ç†Ç»ÇΩÇÃÇ”Ç∑Ç‹Çï¬Ç∂ÇÈ
-//				if(phase < 2){phase += 1;}				
+//Phase3�@���Ȃ��̂ӂ��܂����
 				if (f_anata < 165) {
 					setPosition(anata_fusumaL, -160+f_anata, 0);
 					setPosition(anata_fusumaR, 320-f_anata, 0);
 					f_anata +=5;
 				}else{
 
-//Phase4Å@èüïâÇ∑ÇÈ Ç†Ç¡Ç’Ç¡Ç’É{É^Éìï\é¶
-//					if(phase < 3){phase += 1;}
+//Phase4�@�������� �����Ղ��Ճ{�^���\��
 					okBtn.replaceWith('<input type="image" id="appuppu" src="appuppu.png" width="300" height="100" >');
 //Ç±ÇÍÇÕóVÇ—ÅDñ{óàÇ±Ç±Ç…äÆê¨ÇµÇΩäÁÇ™ì¸ÇÈ
 //					matsumoto.replaceWith('<img src="zamaa.jpg" id="matsumoto" width="300" height="300" alt="Ç†Ç»ÇΩ" hspace="10" vspace="10">');
@@ -166,18 +151,7 @@ $(document).ready(function(){
 		},10);
 	
 	});
-	
-	
 
-//	var appuppu = $('input#appuppu');
-
-	
-	
-	
-
-	
-//	setPosition(ball, 100, 200);
-//	setPosition(bar, 100, 200);
 	
 
 //äeÉpÅ[ÉcÇÃèâä˙ç¿ïW
@@ -220,49 +194,6 @@ $(document).ready(function(){
 	}
 //à íuí≤êÆä÷êîÇ±Ç±Ç‹Ç≈
 
-/*	
-//onChanegeä÷êî
-function onChangeValue(obj, nam, cbf, _tm){
-	if(!_tm) _tm = 100;
-	var f = function (o, n){
-		var v = o[n];
-		var t = setTimeout(
-			function (){
-				clearTimeout(t);
-				if(v != o[n]){
-					if(cbf(o, n)){
-						f(o, n);
-					}
-				}else{
-					f(o, n);
-				}
-			},
-			_tm
-		);
-	}
-	f(obj, nam);
-}
-
-
-//onChangeÇ±Ç±Ç‹Ç≈
-	
-	function fusumaOpen(selector_L, selector_R){
-		timer = setInterval(function(){
-			setPosition(selector_L, -160-l, 0);
-			setPosition(selector_R, 320+r, 0);
-			l +=5;
-			r +=5;
-		},50);
-	}
-	
-	
-function callBack(o, n){
-	alert(state);
-	return true;
-}
-
-onChangeValue(window, 'state', callBack);
-*/
 
 });
 </script>
@@ -277,12 +208,7 @@ onChangeValue(window, 'state', callBack);
 </div>
 
 
-<!--
-<div id="field" align="center">
-<img src="matsumoto.jpg" id="player" hspace="100">
-<img src="yamagiwa.jpg" id="rival" hspace="100">
-</div>
--->
+
 
 
 <table id="field_table" width="1110" border="10" bordercolor="#A0522D" align="center" valign="top" background="bg_wood.gif" style="padding:0pt 0pt 0pt 0pt;">
