@@ -41,12 +41,12 @@ https://code.google.com/p/jqueryrotate/downloads/detail?name=jQueryRotate.js
 $(document).ready(function(){
 
 
-//ÉRÉìÉ\Å[ÉãÇÃíËã`
+//EREiE\A[EaCAiEa`
 	var middle_console = $('div#middle_console');
 	var bottom_console = $('div#bottom_console');
 	bottom_console.html('<input type="image" id="okBtn" src="OKwood.png" width="200" height="100" >');
 
-//äeóvëfÇÃÉZÉåÉNÉ^
+//aeovefCAEZEaENE^
 	var anata = $('div#anata');
 	var aite = $('div#aite');
 	var anata_fusuma = $('div#anata_fusuma');
@@ -56,12 +56,12 @@ $(document).ready(function(){
 	var title = $('img#title');
 	var daruma1 = $('img#daruma1'), daruma2 = $('img#daruma2');
 
-//É{É^ÉìÇÃíËã`
+//E{E^EiCAiEa`
 	var startBtn = $('input#start');
 	var okBtn = $('input#okBtn');
 
-//ïœêî
-	//Ç…ÇÁÇﬂÇ¡Ç±èÄîıÇÃí∑Ç≥
+//i?ei
+	//C…CAC?C!C±eAi?CAi∑C?
 	var time = 10;
 
 	var timer1 = null;
@@ -77,35 +77,35 @@ $(document).ready(function(){
 	var f_aite = 0;
 	var open = 0;
 	
-	//ÇæÇÈÇ‹ÇÃâÒì]êî
+	//CaCEC?CAaOi]ei
 	var daruma_rot = 4;
 	var angle = 0;
 	var angle_plus = 3.6 * daruma_rot / time ; 	
 	
 	
-//èºñ{Ç≥ÇÒÇ∆éRã…Ç≥ÇÒ
+//eon{C?COC?eRa…C?CO
 	var matsumoto = $('img#matsumoto');
 	var yamagiwa = $('img#yamagiwa');
 
 	
 	
 //
-//Ç±Ç±Ç©ÇÁéÂÇ»ÉvÉçÉOÉâÉÄ
-//ÉOÉçÅ[ÉoÉãïœêîÇ∆Ç©ÇÌÇ©ÇÁÇ»Ç≠ÇƒÅCÇ”Ç∑Ç‹Çï¬Ç∂ÇÈÉtÉ@ÉìÉNÉVÉáÉìÇÉXÉ}Å[ÉgÇ…íËã`Ç≈Ç´Ç∏ÅC
-//ÇµÇΩÇ™Ç¡Çƒå©Ç√ÇÁÇ¢
+//C±C±CcCAeAC≫EvEcEOEaEA
+//EOEcA[EoEai?eiC?CcCICcCAC≫C≠C?ACC”C∑C?C?i￢C∂CEEtE@EiENEVEaEiC?EXE}A[EgC…iEa`C?C´C?AC
+//CμCΩC?C!C?acC√CAC￠
 //
-//OKÉ{É^ÉìÇ≈èüïâäJénÉJÉEÉìÉgÇénÇﬂÇÈ
+//OKE{E^EiC?euiaaJenEJEEEiEgC?enC?CE
 	okBtn.click(function(){
 		timer1 = setInterval(function(){
 
-//Phase1Å@ëäéËÇÃÇ”Ç∑Ç‹Çï¬Ç∂ÇÈ
+//Phase1A@eaeECAC”C∑C?C?i￢C∂CE
 			if (f_aite < 165) {
 				setPosition(aite_fusumaL, -160+f_aite, 0);
 				setPosition(aite_fusumaR, 320-f_aite, 0);
 				f_aite +=5;
 			}else{
 			
-//Phase2�@10�b�J�E���g ����܂����
+//Phase2@10bJEg 
 			if(f_aite > 160, counter < time){
 				daruma1.rotate(angle);
 				daruma2.rotate(angle);
@@ -113,24 +113,24 @@ $(document).ready(function(){
 				counter +=0.01;
 			}else{
 			
-//Phase3�@���Ȃ��̂ӂ��܂����
+//Phase3@?????
 				if (f_anata < 165) {
 					setPosition(anata_fusumaL, -160+f_anata, 0);
 					setPosition(anata_fusumaR, 320-f_anata, 0);
 					f_anata +=5;
 				}else{
 
-//Phase4�@�������� �����Ղ��Ճ{�^���\��
+//Phase4@B?B?{^\
 					okBtn.replaceWith('<input type="image" id="appuppu" src="appuppu.png" width="300" height="100" >');
-//Ç±ÇÍÇÕóVÇ—ÅDñ{óàÇ±Ç±Ç…äÆê¨ÇµÇΩäÁÇ™ì¸ÇÈ
-//					matsumoto.replaceWith('<img src="zamaa.jpg" id="matsumoto" width="300" height="300" alt="Ç†Ç»ÇΩ" hspace="10" vspace="10">');
-//					yamagiwa.replaceWith('<img src="gorilla.jpg" id="yamagiwa" width="300" height="300" alt="Ç†Ç¢Çƒ" hspace="10" vspace="10">');
+//C±CICOoVC?ADn{oaC±C±C…aAe¨CμCΩaAC?i，CE
+//					matsumoto.replaceWith('<img src="zamaa.jpg" id="matsumoto" width="300" height="300" alt="C†C≫CΩ" hspace="10" vspace="10">');
+//					yamagiwa.replaceWith('<img src="gorilla.jpg" id="yamagiwa" width="300" height="300" alt="C†C￠C?" hspace="10" vspace="10">');
 
 //
-//Ç∆ÇËÇ†Ç¶Ç∏É^ÉCÉ}Å[Çé~ÇﬂÇÈ
+//C?CEC†C¶C?E^ECE}A[C?e~C?CE
 					clearInterval(timer1);
 
-//Ç†Ç¡Ç’Ç¡Ç’É{É^ÉìÇ≈óºé“ÇÃÇ”Ç∑Ç‹ÇäJÇØÇÈ
+//C†C!C’C!C’E{E^EiC?ooe“CAC”C∑C?C?aJCOCE
 						$('input#appuppu').click(function(){
 							timer2 = setInterval(function(){
 							if (open < 165) {
@@ -154,7 +154,7 @@ $(document).ready(function(){
 
 	
 
-//äeÉpÅ[ÉcÇÃèâä˙ç¿ïW
+//aeEpA[EcCAeaa?c?iW
 	setPosition(anata, 115, 0);
 	setPosition(aite, 15, 0);
 
@@ -175,12 +175,12 @@ $(document).ready(function(){
 	daruma1.rotate(angle);
 	daruma2.rotate(angle);
 
-//ç¿ïWÇ±Ç±Ç‹Ç≈
+//c?iWC±C±C?C?
 
 
 
 
-//à íuí≤êÆä÷êî
+//a?iui?eAa÷ei
 	function setPosition(selector, x, y){
 		selector.css({ position:'absolute', left:x+'px', top:y+'px' });
 	}
@@ -192,7 +192,7 @@ $(document).ready(function(){
 	function setColor(selector, x){
 		selector.css({ backgroundColor:x});
 	}
-//à íuí≤êÆä÷êîÇ±Ç±Ç‹Ç≈
+//a?iui?eAa÷eiC±C±C?C?
 
 
 });
@@ -214,10 +214,10 @@ $(document).ready(function(){
 <table id="field_table" width="1110" border="10" bordercolor="#A0522D" align="center" valign="top" background="bg_wood.gif" style="padding:0pt 0pt 0pt 0pt;">
     <tr><td width="450" valign="top"><div class="field">
           <div id="anata" class="player">
-<!-- Ç±Ç±Ç…é©ï™ÇÃVideoÇì¸ÇÍÇÈÅD
-ëÂÇ´Ç≥ÇÕ300Å~300ÅDhspaceÇ∆vspaceÇÕ10-->
-	  <img src="matsumoto.jpg" id="matsumoto" width="300" height="300" alt="Ç†Ç»ÇΩ" hspace="10" vspace="10">
-<!--é©ï™VideoÇ±Ç±Ç‹Ç≈-->
+<!-- C±C±C…eci?CAVideoC?i，CICEAD
+eAC´C?CO300A~300ADhspaceC?vspaceCO10-->
+	  <img src="matsumoto.jpg" id="matsumoto" width="300" height="300" alt="C†C≫CΩ" hspace="10" vspace="10">
+<!--eci?VideoC±C±C?C?-->
 	  </div>
           <div id="anata_fusuma" class="player">
 	  <img id="anata_fusumaL"src="fusuma_red_l.png" width="160" height="320" alt="husuma">
@@ -227,10 +227,10 @@ $(document).ready(function(){
           <div id="middle_console"><img src="vs.png" width="160" height="170"></div></td>
     <td width="450" valign="top"><div class="field">
           <div id="aite" class="player">
-<!-- Ç±Ç±Ç…é©ï™ÇÃVideoÇì¸ÇÍÇÈÅD
-ëÂÇ´Ç≥ÇÕ300Å~300ÅDhspaceÇ∆vspaceÇÕ10-->
-	  <img src="yamagiwa.jpg" id="yamagiwa" width="300" height="300" alt="Ç†Ç¢Çƒ" hspace="10" vspace="10"></div>
-<!--é©ï™VideoÇ±Ç±Ç‹Ç≈-->
+<!-- C±C±C…eci?CAVideoC?i，CICEAD
+eAC´C?CO300A~300ADhspaceC?vspaceCO10-->
+	  <img src="yamagiwa.jpg" id="yamagiwa" width="300" height="300" alt="C†C￠C?" hspace="10" vspace="10"></div>
+<!--eci?VideoC±C±C?C?-->
           <div id="aite_fusuma" class="player">
 	  <img id="aite_fusumaL"src="fusuma_blue_l.png" width="160" height="320" alt="husuma">
 	  <img id="aite_fusumaR"src="fusuma_blue_r.png" width="160" height="320" alt="husuma"></div>
