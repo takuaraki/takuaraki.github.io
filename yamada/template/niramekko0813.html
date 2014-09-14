@@ -39,6 +39,7 @@ https://code.google.com/p/jqueryrotate/downloads/detail?name=jQueryRotate.js
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="jQueryRotate.js"></script>
+<script src="http://araken.orz.hm:8080/socket.io/socket.io.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 
@@ -89,8 +90,7 @@ $(document).ready(function(){
 	var matsumoto = $('img#matsumoto');
 	var yamagiwa = $('img#yamagiwa');
 
-	
-	
+
 //
 //C±C±CcCAeAC≫EvEcEOEaEA
 //EOEcA[EoEai?eiC?CcCICcCAC≫C≠C?ACC”C∑C?C?i￢C∂CEEtE@EiENEVEaEiC?EXE}A[EgC…iEa`C?C´C?AC
@@ -179,9 +179,6 @@ $(document).ready(function(){
 
 //c?iWC±C±C?C?
 
-
-
-
 //a?iui?eAa÷ei
 	function setPosition(selector, x, y){
 		selector.css({ position:'absolute', left:x+'px', top:y+'px' });
@@ -203,8 +200,61 @@ $(document).ready(function(){
 <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
 <script src="peer.js"></script>
 
+<script type="text/javascript">
+window.addEventListener('load', function(){
+    var textemitID= document.getElementById('localID');
+//webSocket
+    var button = document.getElementById('okBtn');
+    var webSocket= io.connect('http://araken.orz.hm:8080');
+    
+    var localflag = false;
+    var remoteflag = false;
+    
+    webSocket.on('connect',function(){
+        //div.innerHTML='接続完了!<br>'; 
+     });
+    
+    webSocket.on('message',function(data){
+        if(textemitID.innerHTML==data){
+        //送られたdataが自分のIDの場合無視        
+        }else{
+        //送られたdataが相手のIDの場合
+            
+            //remoteflsg立てる
+            remoteflag=true;
+            
+            if(localflag){
+            //先に自分が押していたとき
+            //ふすまを閉める
+            textemitID.innerHTML='ふすま閉める';
+            }else{
+            //先に自分が押していないとき
+            //無視
+            }
+        
+        }
+        //textemitID.innerHTML=data;
+    });
+    
+    button.onclick=function(){
+        
+        if(remoteflag){
+        //ふすま閉める
+            textemitID.innerHTML='ふすま閉める';
+        }else{
+        //localflag立てる
+            localflag=true;
+        }
+        webSocket.emit('message',textemitID.innerHTML);
+    };
+});
+	
+</script>
+    
 </head>
 
+
+    
 <body background="bg_green.gif" bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
 
 <div id="top" class="top" >

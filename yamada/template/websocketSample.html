@@ -1,0 +1,36 @@
+<html>
+<head>
+<script src="http://araken.orz.hm:8080/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+
+    
+function initialize(){
+    var text = document.getElementById('text');
+    var button = document.getElementById('button');
+    var div = document.getElementById('div');
+    var webSocket= io.connect('http://araken.orz.hm:8080');
+    
+    webSocket.on('connect',function(){
+        div.innerHTML='接続完了!<br>'; 
+     });
+    
+    webSocket.on('message',function(data){
+        div.innerHTML=data;
+    });
+    
+    button.onclick=function(){
+        webSocket.emit('message',text.value);
+    };
+}
+window.addEventListener('load', initialize);
+</script>
+
+</head>
+<body>
+
+<input type="text" id="text">
+<input type="button" id="button">
+<div id="div"></div>
+
+</body>
+</html>
