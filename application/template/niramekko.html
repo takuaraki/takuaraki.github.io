@@ -1,0 +1,72 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content"text/html; charset=UTF-8">
+    <title>niramekko</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="jQueryRotate.js"></script>
+    <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
+    
+    <script src="peer.js"></script>
+    <script type="text/javascript" src="niramekko.js"></script>
+</head>
+
+<body background="bg_green.gif" bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+    
+    <div id="top" class="top" >
+        <img src="ranmagaku.png" id="title" width="500" height="180">
+        <img src="daruma.png" id="daruma1" width="180" height="180">
+        <img src="daruma.png" id="daruma2" width="180" height="180">
+    </div>
+
+    <table>
+        <div id="localID"></div><br>
+        <input type="text" id="remoteID">
+        <input type="button" id="call" value="call"><br>
+    </table>
+
+    <table id="field_table" width="1110" border="10" bordercolor="#A0522D" align="center" valign="top" background="bg_wood.gif" style="padding:0pt 0pt 0pt 0pt;">
+        <tr>
+            <td width="450" valign="top">
+                <div class="field">
+                    <div id="anata" class="player">
+                        <video id="local" width="300" height="300" muted></video>
+                    </div>
+                    <div id="anata_fusuma" class="player">
+                        <img id="anata_fusumaL"src="fusuma_red_l.png" width="160" height="320" alt="husuma">
+                        <img id="anata_fusumaR"src="fusuma_red_r.png" width="160" height="320" alt="husuma">
+                    </div>
+                </div>
+            </td>
+            
+            <td width="200" valign="top">
+                <div id="middle_console">
+                    <img src="vs.png" width="160" height="170">
+                </div>
+            </td>
+            
+            <td width="450" valign="top">
+                <div class="field">
+                    <div id="aite" class="player">
+                        <div id="remotes" width="300" height="300"></div>
+                    </div>
+                    <div id="aite_fusuma" class="player">
+                        <img id="aite_fusumaL"src="fusuma_blue_l.png" width="160" height="320" alt="husuma">
+                        <img id="aite_fusumaR"src="fusuma_blue_r.png" width="160" height="320" alt="husuma">
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <table width="710" border="0" align="center">
+        <tr>
+            <th width="160" valign="top"><img src="anata.png" width="160" height="88"></th>
+            <th width="390" valign="top"><div id="bottom_console"></div></th>
+            <th width="160" valign="top"><img src="aite.png" width="160" height="88"></th>
+        </tr>
+    </table>
+</body>
+
+</html>

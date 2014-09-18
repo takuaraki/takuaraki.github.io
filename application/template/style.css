@@ -1,0 +1,23 @@
+div.field {
+    width: 450px;
+    height: 320px;
+    color: #000000;
+    position:relative;
+    left: 0px;
+    top: 0px; 
+    overflow: hidden;
+}
+
+div.player {
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+}
+
+div.top {
+    position:relative;
+    margin: 0 auto;
+    width: 900px;
+    height: 190px;
+    overflow: hidden;
+}
