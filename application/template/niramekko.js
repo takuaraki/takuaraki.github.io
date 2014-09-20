@@ -7,6 +7,9 @@ $(document).ready(function(){
 // web socket
     var webSocket = io.connect('http://araken.orz.hm:8080');
     
+// audio
+    var audio_niramekko = document.getElementById("audio_niramekko");
+    
 // consoles
 	var middle_console = $('div#middle_console');
 	var bottom_console = $('div#bottom_console');
@@ -52,6 +55,13 @@ $(document).ready(function(){
         anata_clicked = true;
         webSocket.emit('message', selfid);
 	});
+
+// audio event
+    audio_niramekko.addEventListener("timeupdate", function(){
+        if(audio_niramekko.currentTime > 11.0){
+            openFusuma();
+        }
+    }, false);
     
 // put components
 	setPosition(anata, 115, 0);
@@ -129,23 +139,29 @@ $(document).ready(function(){
                     left: 160,
                 }, 300 );
                 
-                okBtn.replaceWith('<input type="image" id="appuppu" src="appuppu.png" width="300" height="100" >');
-                clearInterval(timer1);
+                audio_niramekko.play();
+                /*okBtn.replaceWith('<input type="image" id="appuppu" src="appuppu.png" width="300" height="100" >');
 				$('input#appuppu').click(function(){
-                    anata_fusumaL.animate({ 
-                        left: -160,
-                    }, 300 );
-                    anata_fusumaR.animate({ 
-                        left: 320,
-                    }, 300 );
-                    aite_fusumaL.animate({ 
-                        left: -160,
-                    }, 300 );
-                    aite_fusumaR.animate({ 
-                        left: 320,
-                    }, 300 );
-				});
+                    openFusuma();
+				});*/
+                
+                clearInterval(timer1);
             }
 		},10);
+    }
+    
+    function openFusuma(){
+        anata_fusumaL.animate({ 
+            left: -160,
+        }, 300 );
+        anata_fusumaR.animate({ 
+            left: 320,
+        }, 300 );
+        aite_fusumaL.animate({ 
+            left: -160,
+        }, 300 );
+        aite_fusumaR.animate({ 
+            left: 320,
+        }, 300 );
     }
 });

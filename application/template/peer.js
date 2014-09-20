@@ -4,6 +4,7 @@ window.URL = window.URL || window.webkitURL ;
 var PEERJS_API_KEY = 'irddn8i4n2s7zaor';
 var peer = null;
 var selfid = null;
+var remoteid = null;
 var localStream = null;
 
 function initializePeer(callback) {
@@ -23,6 +24,7 @@ function initializePeer(callback) {
 		peer.destroy();
 	});
 	peer.on('error', function(err) {
+        remoteid = null;
 		console.error(err);
 	});
 }
@@ -44,7 +46,7 @@ function initializeMedia(callback) {
 }
 
 function settingMediaConnection(mediaConnection) {
-	var remoteid = mediaConnection.peer;
+	remoteid = mediaConnection.peer;
 	var remoteStream = null;
 	var video = null;
 	mediaConnection.on('stream', function(stream) {
@@ -61,6 +63,7 @@ function settingMediaConnection(mediaConnection) {
 		video.parentNode.removeChild(video);
 	});
 	mediaConnection.on('error', function() {
+        remoteid = null;
 		console.error(err);
 	});
 }
