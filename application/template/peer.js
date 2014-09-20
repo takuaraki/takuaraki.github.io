@@ -34,9 +34,17 @@ function initializeMedia(callback) {
 		{audio: true, video: true},
 		function(stream) {
 			localStream = stream;
-			var video = document.getElementById('local');
-			video.src = URL.createObjectURL(stream);
-			video.play();
+            
+            var localVideo = document.createElement('video');
+            localVideo.src = URL.createObjectURL(stream);
+            localVideo.muted = true;
+            localVideo.style.width = "320px";
+            localVideo.style.height = "320px";
+            localVideo.play();
+            
+            var localDisplay = document.getElementById('localDisplay');
+            renderStart(localVideo, localDisplay, localEffects);
+
 			callback();
 		},
 		function(error) {
@@ -48,19 +56,19 @@ function initializeMedia(callback) {
 function settingMediaConnection(mediaConnection) {
 	remoteid = mediaConnection.peer;
 	var remoteStream = null;
-	var video = null;
+	var remoteVideo = null;
 	mediaConnection.on('stream', function(stream) {
-		video = document.createElement('video');
-		video.style.width = "300px";
-		video.style.height = "300px";
-		video.src = URL.createObjectURL(stream);
-		video.play();
-		var parent = document.getElementById('remotes');
-		parent.appendChild(video);
+		remoteVideo = document.createElement('video');
+		remoteVideo.style.width = "320px";
+		remoteVideo.style.height = "320px";
+		remoteVideo.src = URL.createObjectURL(stream);
+		remoteVideo.play();
+        
+        var remoteDisplay = document.getElementById('remoteDisplay');
+        renderStart(remoteVideo, remoteDisplay, remoteEffects);
 	});
 	mediaConnection.on('close', function() {
-		URL.revokeObjectURL(video.src);
-		video.parentNode.removeChild(video);
+		URL.revokeObjectURL(remoteVideo.src);
 	});
 	mediaConnection.on('error', function() {
         remoteid = null;

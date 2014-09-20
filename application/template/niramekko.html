@@ -9,10 +9,12 @@
     <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
     
     <script src="peer.js"></script>
+    <script type="text/javascript" src="effect.js"></script>
     <script type="text/javascript" src="niramekko.js"></script>
 </head>
 
 <body background="bg_green.gif" bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+    <!-- audio source: http://www.asahi-net.or.jp/~hb9t-ktd/music/Japan/Studio/Midi/Traditional/staring_out_game.html -->
     <audio id="audio_niramekko" src="niramekko.mp3"></audio>
     
     <div id="top" class="top" >
@@ -32,7 +34,8 @@
             <td width="450" valign="top">
                 <div class="field">
                     <div id="anata" class="player">
-                        <video id="local" width="300" height="300" muted></video>
+                        <!-- <video id="local" width="300" height="300" muted></video> -->
+                        <canvas id="localDisplay"></canvas>
                     </div>
                     <div id="anata_fusuma" class="player">
                         <img id="anata_fusumaL"src="fusuma_red_l.png" width="160" height="320" alt="husuma">
@@ -50,7 +53,8 @@
             <td width="450" valign="top">
                 <div class="field">
                     <div id="aite" class="player">
-                        <div id="remotes" width="300" height="300"></div>
+                        <!-- <div id="remotes" width="300" height="300"></div> -->
+                        <canvas id="remoteDisplay"></canvas>
                     </div>
                     <div id="aite_fusuma" class="player">
                         <img id="aite_fusumaL"src="fusuma_blue_l.png" width="160" height="320" alt="husuma">
