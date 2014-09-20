@@ -7,9 +7,6 @@ $(document).ready(function(){
 // web socket
     var webSocket = io.connect('http://araken.orz.hm:8080');
     
-// audio
-    var audio_niramekko = document.getElementById("audio_niramekko");
-    
 // consoles
 	var middle_console = $('div#middle_console');
 	var bottom_console = $('div#bottom_console');
@@ -55,13 +52,6 @@ $(document).ready(function(){
         anata_clicked = true;
         webSocket.emit('message', selfid);
 	});
-
-// audio event
-    audio_niramekko.addEventListener("timeupdate", function(){
-        if(audio_niramekko.currentTime > 11.0){
-            openFusuma();
-        }
-    }, false);
     
 // put components
 	setPosition(anata, 115, 0);
@@ -118,36 +108,47 @@ $(document).ready(function(){
 	}
     
     function startGame(){
-        aite_fusumaL.animate({ 
-			left: 0,
-		}, 300 );
-        aite_fusumaR.animate({ 
-			left: 160,
-		}, 300 );
+        closeFusuma('aite');
         
 		timer1 = setInterval(function(){
-            if(f_aite > 160, counter < time){
+            if(f_aite > 160, counter < time){ // preparation phase
                 daruma1.rotate(angle);
 				daruma2.rotate(angle);
 				angle += angle_plus;
 				counter +=0.01;
-            }else{
-                anata_fusumaL.animate({ 
-                    left: 0,
-                }, 300 );
-                anata_fusumaR.animate({ 
-                    left: 160,
-                }, 300 );
+            }else{ // appuppu phase
+                counter = 0;
                 
+                closeFusuma('anata');
+                
+                var audio_niramekko = document.getElementById("audio_niramekko");
+                audio_niramekko.addEventListener("timeupdate", function(){
+                    if(audio_niramekko.currentTime > 11.0){
+                        openFusuma();
+                    }
+                }, false);
                 audio_niramekko.play();
-                /*okBtn.replaceWith('<input type="image" id="appuppu" src="appuppu.png" width="300" height="100" >');
-				$('input#appuppu').click(function(){
-                    openFusuma();
-				});*/
-                
                 clearInterval(timer1);
             }
 		},10);
+    }
+    
+    function closeFusuma(player){
+        if(player == 'anata'){
+            anata_fusumaL.animate({ 
+                left: 0,
+            }, 300 );
+            anata_fusumaR.animate({ 
+                left: 160,
+            }, 300 );
+        }else if(player == 'aite'){
+            aite_fusumaL.animate({ 
+                left: 0,
+            }, 300 );
+            aite_fusumaR.animate({ 
+                left: 160,
+            }, 300 );
+        }
     }
     
     function openFusuma(){
