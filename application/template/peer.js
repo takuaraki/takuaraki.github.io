@@ -45,6 +45,9 @@ function initializeMedia(callback) {
             var localDisplay = document.getElementById('localDisplay');
             renderStart(localVideo, localDisplay, localEffects);
 
+            var audio = document.getElementById('audio_remote');
+            startAudioProcess(stream, audio);
+            
 			callback();
 		},
 		function(error) {
@@ -62,10 +65,14 @@ function settingMediaConnection(mediaConnection) {
 		remoteVideo.style.width = "320px";
 		remoteVideo.style.height = "320px";
 		remoteVideo.src = URL.createObjectURL(stream);
+        //remoteVideo.muted = true;
 		remoteVideo.play();
         
         var remoteDisplay = document.getElementById('remoteDisplay');
         renderStart(remoteVideo, remoteDisplay, remoteEffects);
+        
+        // var audio = document.getElementById('audio_remote');
+        // startAudioProcess(stream, audio);
 	});
 	mediaConnection.on('close', function() {
 		URL.revokeObjectURL(remoteVideo.src);
