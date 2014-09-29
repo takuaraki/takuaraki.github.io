@@ -1,16 +1,17 @@
+// web socket
+    var webSocket = io.connect('http://araken.orz.hm:8080');
+
 $(document).ready(function(){
 
 // ###########################################
 // ############### variables #################
 // ###########################################
     
-// web socket
-    var webSocket = io.connect('http://araken.orz.hm:8080');
     
 // consoles
 	var middle_console = $('div#middle_console');
 	var bottom_console = $('div#bottom_console');
-	bottom_console.html('<input type="image" id="okBtn" src="OKwood.png" width="200" height="100" >');
+	bottom_console.html('<input type="image" id="okBtn" src="OKwood.png" width="150" height="75" >');
 
 // images
 	var anata = $('div#anata');
@@ -50,7 +51,10 @@ $(document).ready(function(){
 // click event
 	okBtn.click(function(){
         anata_clicked = true;
-        webSocket.emit('message', selfid);
+        webSocket.emit('message', JSON.stringify({
+            type: 'id',
+            id: selfid
+        }));
 	});
     
 // put components
@@ -79,15 +83,44 @@ $(document).ready(function(){
         console.log('connect!');
     });
     
-    webSocket.on('message', function(data){
-        console.log('message: ' + data);
-        if(data != selfid){
-            aite_clicked = true;
-            if(anata_clicked){
+    webSocket.on('message', function(message){
+        var data = JSON.parse(message);
+        if(data.type == 'id'){
+            if(data.id != selfid){
+                aite_clicked = true;
+                if(anata_clicked){
+                    startGame();
+                }
+            }else if(aite_clicked){
                 startGame();
             }
-        }else if(aite_clicked){
-            startGame();
+        }else if(data.type == 'effectOn'){
+            if(data.id != selfid){
+                if(data.effect == 'reverse'){
+                    remoteEffects.reverseRGB = true;
+                    remoteEffects.edge = false;
+                    remoteEffects.gyogan = false;
+                }else if(data.effect == 'edge'){
+                    remoteEffects.reverseRGB = false;
+                    remoteEffects.edge = true;
+                    remoteEffects.gyogan = false;
+                }else if(data.effect == 'gyogan'){
+                    remoteEffects.reverseRGB = false;
+                    remoteEffects.edge = false;
+                    remoteEffects.gyogan = true;
+                }
+            }
+            
+        }else if(data.type == 'effectOff'){
+            if(data.id != selfid){
+                if(data.effect == 'reverse'){
+                    remoteEffects.reverseRGB = false;
+                }else if(data.effect == 'edge'){
+                    remoteEffects.edge = false;
+                }else if(data.effect == 'gyogan'){
+                    remoteEffects.gyogan = false;
+                }
+            }
         }
     });
     

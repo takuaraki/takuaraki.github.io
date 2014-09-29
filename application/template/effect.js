@@ -1,12 +1,12 @@
 var localEffects = [];
 localEffects.contrast = false;
-localEffects.reverseRGB = true;
+localEffects.reverseRGB = false;
 localEffects.edge = false;
 localEffects.gyogan = false;
 
 var remoteEffects = [];
 remoteEffects.contrast = false;
-remoteEffects.reverseRGB = true;
+remoteEffects.reverseRGB = false;
 remoteEffects.edge = false;
 remoteEffects.gyogan = false;
 
