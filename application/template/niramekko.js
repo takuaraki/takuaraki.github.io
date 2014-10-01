@@ -108,6 +108,10 @@ $(document).ready(function(){
                     remoteEffects.reverseRGB = false;
                     remoteEffects.edge = false;
                     remoteEffects.gyogan = true;
+                }else if(data.effect == 'slim'){
+                    remoteEffects.slim = true;
+                }else if(data.effect == 'mirror'){
+                    remoteEffects.mirror = true;
                 }
             }
             
@@ -119,6 +123,10 @@ $(document).ready(function(){
                     remoteEffects.edge = false;
                 }else if(data.effect == 'gyogan'){
                     remoteEffects.gyogan = false;
+                }else if(data.effect == 'slim'){
+                    remoteEffects.slim = false;
+                }else if(data.effect == 'mirror'){
+                    remoteEffects.mirror = false;
                 }
             }
         }

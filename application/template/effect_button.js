@@ -8,6 +8,8 @@ $(document).ready(function(){
     var efBtnReverse = $('input#efBtnReverse');
     var efBtnEdge = $('input#efBtnEdge');
     var efBtnGyogan = $('input#efBtnGyogan');
+    var efBtnSlim = $('input#efBtnSlim');
+    var efBtnMirror = $('input#efBtnMirror');
     
 // ###########################################
 // ################ execute ##################
@@ -38,6 +40,22 @@ $(document).ready(function(){
             OffButton('gyogan');
 		}
 	});
+    
+    efBtnSlim.click(function(){
+        if(!localEffects.slim){
+			OnButton('slim');
+		}else{
+            OffButton('slim');
+		}
+    });
+    
+    efBtnMirror.click(function(){
+        if(!localEffects.mirror){
+			OnButton('mirror');
+		}else{
+            OffButton('mirror');
+		}
+    });
     
     
 // ###########################################
@@ -71,11 +89,31 @@ $(document).ready(function(){
             localEffects.gyogan = true;
             OffButton('reverse');
             OffButton('edge');
+            OffButton('slim');
             
             webSocket.emit('message', JSON.stringify({
                 type: 'effectOn',
                 id: selfid,
                 effect: 'gyogan'
+            }));
+        }else if(effect == 'slim'){
+            efBtnSlim.attr("src", "effectButtonSlimOn.png");
+            localEffects.slim = true;
+            OffButton('gyogan');
+            
+            webSocket.emit('message', JSON.stringify({
+                type: 'effectOn',
+                id: selfid,
+                effect: 'slim'
+            }));
+        }else if(effect == 'mirror'){
+            efBtnMirror.attr("src", "effectButtonMirrorOn.png");
+            localEffects.mirror = true;
+            
+            webSocket.emit('message', JSON.stringify({
+                type: 'effectOn',
+                id: selfid,
+                effect: 'mirror'
             }));
         }
     }
@@ -107,6 +145,24 @@ $(document).ready(function(){
                 type: 'effectOff',
                 id: selfid,
                 effect: 'gyogan'
+            }));
+        }else if(effect == 'slim'){
+            efBtnSlim.attr("src", "effectButtonSlimOff.png");
+            localEffects.slim = false;
+            
+            webSocket.emit('message', JSON.stringify({
+                type: 'effectOff',
+                id: selfid,
+                effect: 'slim'
+            }));
+        }else if(effect == 'mirror'){
+            efBtnMirror.attr("src", "effectButtonMirrorOff.png");
+            localEffects.mirror = false;
+            
+            webSocket.emit('message', JSON.stringify({
+                type: 'effectOff',
+                id: selfid,
+                effect: 'mirror'
             }));
         }
     }

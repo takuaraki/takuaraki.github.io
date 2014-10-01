@@ -3,9 +3,10 @@
     <meta http-equiv="Content-Type" content"text/html; charset=UTF-8">
     <title>niramekko</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="jQueryRotate.js"></script>
     <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+    <!-- <script src="https://skyway.io/dist/v2/0.3/peer.js"></script> -->
     <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
     
     <script src="peer.js"></script>
@@ -37,8 +38,7 @@
         <tr>
             <td width="450" valign="top">
                 <div class="field">
-                    <div id="anata" class="player">
-                        <!-- <video id="local" width="300" height="300" muted></video> -->
+                    <div id="anata" class="player" align="center">
                         <canvas id="localDisplay"></canvas>
                     </div>
                     <div id="anata_fusuma" class="player">
@@ -56,8 +56,7 @@
             
             <td width="450" valign="top">
                 <div class="field">
-                    <div id="aite" class="player">
-                        <!-- <div id="remotes" width="300" height="300"></div> -->
+                    <div id="aite" class="player" align="center">
                         <canvas id="remoteDisplay"></canvas>
                     </div>
                     <div id="aite_fusuma" class="player">
@@ -81,6 +80,8 @@
         <input type="image" src="effectButtonReverseOff.png" id="efBtnReverse" width="100" height="100">
         <input type="image" src="effectButtonEdgeOff.png" id="efBtnEdge" width="100" height="100">
         <input type="image" src="effectButtonGyoganOff.png" id="efBtnGyogan" width="100" height="100">
+        <input type="image" src="effectButtonSlimOff.png" id="efBtnSlim" width="100" height="100">
+        <input type="image" src="effectButtonMirrorOff.png" id="efBtnMirror" width="100" height="100">
     </div>
 </body>
 

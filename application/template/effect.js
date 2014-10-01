@@ -3,12 +3,16 @@ localEffects.contrast = false;
 localEffects.reverseRGB = false;
 localEffects.edge = false;
 localEffects.gyogan = false;
+localEffects.slim = false;
+localEffects.mirror = false;
 
 var remoteEffects = [];
 remoteEffects.contrast = false;
 remoteEffects.reverseRGB = false;
 remoteEffects.edge = false;
 remoteEffects.gyogan = false;
+remoteEffects.slim = false;
+remoteEffects.mirror = false;
 
 var r = 120;
 var d = 30;
@@ -19,7 +23,12 @@ function renderStart(video, display, effects){
 	var displayContext = display.getContext('2d');
 	var render = function() {
 		requestAnimationFrame(render);
-		var width = 320;
+		var width;
+        if(effects.slim){
+            width = 110;
+        }else{
+            width = 320;
+        }
 		var height = 320;
 		if (width == 0 || height == 0) {return;}
 		buffer.width = display.width = width;
@@ -29,6 +38,7 @@ function renderStart(video, display, effects){
 		var src = bufferContext.getImageData(0, 0, width, height); // 射影元
 		var dest = bufferContext.createImageData(buffer.width, buffer.height); // 射影先
 		
+        // effects for changing RGB(+alpha) value
         if(effects.contrast){
             for (var i = 0; i < dest.data.length; i += 4) {
                 for (var c = 0; c < 3; c ++) {
@@ -122,10 +132,22 @@ function renderStart(video, display, effects){
                         dest.data[address + c] = value[c];
                     }
                     dest.data[address + 3] = 255; // alpha
+                }
             }
-		}
         }else{
             dest = src;
+        }
+        
+        if(effects.mirror){
+            for (var row = 0; row < height; row++) {
+                for (var col = 0; col < width/2; col++) {
+                    var address = (row*width + col)*4;
+                    var symmetricalAddress = (row*width + (width-1-col))*4
+                    for (var c = 0; c < 3; c++) {
+                        dest.data[address + c] = dest.data[symmetricalAddress + c];
+                    }
+                }
+            }
         }
         
 		displayContext.putImageData(dest, 0, 0);
