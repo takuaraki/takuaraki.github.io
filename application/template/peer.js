@@ -13,7 +13,7 @@ function initializePeer(callback) {
 	peer.on('open', function(id) {
 		selfid = id;
 		var localID = document.getElementById('localID');
-		localID.innerHTML = selfid ;
+		localID.innerHTML = 'あなたのID: ' + selfid ;
 		callback();
 	});
 	peer.on('call', function(mediaConnection) {
