@@ -7,6 +7,8 @@ $(document).ready(function(){
 // ############### variables #################
 // ###########################################
     
+// peerID
+    var textBox_remoteID = $('input#remoteID');
     
 // consoles
 	var middle_console = $('div#middle_console');
@@ -22,8 +24,6 @@ $(document).ready(function(){
 	var aite_fusumaL = $('img#aite_fusumaL'), aite_fusumaR = $('img#aite_fusumaR');
 	var title = $('img#title');
 	var daruma1 = $('img#daruma1'), daruma2 = $('img#daruma2');
-    var matsumoto = $('img#matsumoto');
-	var yamagiwa = $('img#yamagiwa');
 
 // buttons
 	var startBtn = $('input#start');
@@ -56,6 +56,12 @@ $(document).ready(function(){
             id: selfid
         }));
 	});
+    
+    textBox_remoteID.click(function(){
+        if($(this).val() == 'ここに相手のIDを入力'){
+            $(this).val("");
+        }
+    });
     
 // put components
 	setPosition(anata, 115, 0);
