@@ -156,8 +156,17 @@ $(document).ready(function(){
     
     function startGame(){
         closeFusuma('aite');
+        closeFusuma('anata');
         
-		timer1 = setInterval(function(){
+        var audio_niramekko = document.getElementById("audio_niramekko");
+        audio_niramekko.addEventListener("timeupdate", function(){
+            if(audio_niramekko.currentTime > 11.0){
+                openFusuma();
+            }
+        }, false);
+        audio_niramekko.play();
+        
+		/*timer1 = setInterval(function(){
             if(f_aite > 160, counter < time){ // preparation phase
                 daruma1.rotate(angle);
 				daruma2.rotate(angle);
@@ -177,7 +186,7 @@ $(document).ready(function(){
                 audio_niramekko.play();
                 clearInterval(timer1);
             }
-		},10);
+		},10);*/
     }
     
     function closeFusuma(player){
