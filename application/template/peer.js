@@ -65,14 +65,10 @@ function settingMediaConnection(mediaConnection) {
 		remoteVideo.style.width = "320px";
 		remoteVideo.style.height = "320px";
 		remoteVideo.src = URL.createObjectURL(stream);
-        //remoteVideo.muted = true;
 		remoteVideo.play();
         
         var remoteDisplay = document.getElementById('remoteDisplay');
         renderStart(remoteVideo, remoteDisplay, remoteEffects);
-        
-        // var audio = document.getElementById('audio_remote');
-        // startAudioProcess(stream, audio);
 	});
 	mediaConnection.on('close', function() {
 		URL.revokeObjectURL(remoteVideo.src);
@@ -90,11 +86,10 @@ function initialize() {
 			var call = document.getElementById('call');
 			
 			call.onclick = function(){
-				var id = remoteID.value;
-				var mediaConnection = peer.call(id, localStream);
+				remoteid = remoteID.value;
+				var mediaConnection = peer.call(remoteid, localStream);
 				settingMediaConnection(mediaConnection);
 			};
 		});
 	});
 }
-//window.addEventListener('load', initialize);

@@ -165,28 +165,6 @@ $(document).ready(function(){
             }
         }, false);
         audio_niramekko.play();
-        
-		/*timer1 = setInterval(function(){
-            if(f_aite > 160, counter < time){ // preparation phase
-                daruma1.rotate(angle);
-				daruma2.rotate(angle);
-				angle += angle_plus;
-				counter +=0.01;
-            }else{ // appuppu phase
-                counter = 0;
-                
-                closeFusuma('anata');
-                
-                var audio_niramekko = document.getElementById("audio_niramekko");
-                audio_niramekko.addEventListener("timeupdate", function(){
-                    if(audio_niramekko.currentTime > 11.0){
-                        openFusuma();
-                    }
-                }, false);
-                audio_niramekko.play();
-                clearInterval(timer1);
-            }
-		},10);*/
     }
     
     function closeFusuma(player){
