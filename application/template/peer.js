@@ -79,7 +79,7 @@ function settingMediaConnection(mediaConnection) {
 	});
 }
 
-function initialize() {
+function initializePeerConnection() {
 	initializePeer(function() {
 		initializeMedia(function() {
 			var remoteID = document.getElementById('remoteID');
