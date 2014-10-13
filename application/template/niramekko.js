@@ -85,7 +85,8 @@ $(document).ready(function(){
     initialize();
     
 // init web socket
-    webSocket.on('connect', function(){
+    initializeWebSocket();
+    /*webSocket.on('connect', function(){
         console.log('connect!');
     });
     
@@ -136,7 +137,7 @@ $(document).ready(function(){
                 }
             }
         }
-    });
+    });*/
     
     
 // ###########################################
