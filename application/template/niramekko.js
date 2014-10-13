@@ -92,7 +92,7 @@ $(document).ready(function(){
     webSocket.on('message', function(message){
         var data = JSON.parse(message);
         if(data.type == 'id'){
-            if(data.id != selfid){
+            if(data.id == remoteid){
                 aite_clicked = true;
                 if(anata_clicked){
                     startGame();
@@ -101,7 +101,7 @@ $(document).ready(function(){
                 startGame();
             }
         }else if(data.type == 'effectOn'){
-            if(data.id != selfid){
+            if(data.id == remoteid){
                 if(data.effect == 'reverse'){
                     remoteEffects.reverseRGB = true;
                     remoteEffects.edge = false;
@@ -122,7 +122,7 @@ $(document).ready(function(){
             }
             
         }else if(data.type == 'effectOff'){
-            if(data.id != selfid){
+            if(data.id == remoteid){
                 if(data.effect == 'reverse'){
                     remoteEffects.reverseRGB = false;
                 }else if(data.effect == 'edge'){
