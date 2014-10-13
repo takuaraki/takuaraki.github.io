@@ -1,3 +1,5 @@
+var webSocket = io.connect('http://araken.orz.hm:8080');
+
 $(document).ready(function(){
 
 // ###########################################

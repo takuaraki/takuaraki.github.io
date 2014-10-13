@@ -1,5 +1,3 @@
-var webSocket = io.connect('http://araken.orz.hm:8080');
-
 // init web socket
 function initializeWebSocket(){
     webSocket.on('connect', function(){
