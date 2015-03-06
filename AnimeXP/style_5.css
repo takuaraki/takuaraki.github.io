@@ -1,6 +1,6 @@
 body {
     background-color: #FFFFF9;
-    padding: 20px 0px 0px;
+    padding: 1.8% 0px 0px;
     font-family: sans-serif;
 }
 
@@ -17,14 +17,12 @@ body > div.headerArea {
         width: 100%; 
         background-color: lavender;
         border-color: gray;
-        margin: 0px 0px 0px;
         border: 1px #000000 solid;
         border-collapse: collapse;
     }
 
         table.toolBox td.login {
             width: 95%;
-            margin: 0px;
             padding: 0px;
         }
 
@@ -38,7 +36,6 @@ body > div.headerArea {
 
             td.login > input.loginBtn {
                 background-color: aquamarine;
-                height: 26px;
                 vertical-align: middle;
                 font-weight: bold;
             }
@@ -57,7 +54,6 @@ body > div.headerArea {
 
             td.update > input.updateBtn {
                 background-color: gold;
-                height: 26px;
                 vertical-align: middle;
                 font-weight: bold; 
             }
