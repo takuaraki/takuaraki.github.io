@@ -3,6 +3,10 @@ body {
     font-family: sans-serif;
 }
 
+input[type="button"] {
+    -webkit-appearance: none;
+}
+
 /* ヘッダー部分 */
 body > div.headerArea {
     
