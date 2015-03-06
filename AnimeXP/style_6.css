@@ -87,7 +87,7 @@ body > div.headerArea {
     table.watchLog tr, table.watchLog td, table.watchLog th {
         border: 1px #000000 solid;
         border-collapse: collapse;
-        height: 20px;
+        height: 50px;
     }
         
         table.watchLog th > input {
