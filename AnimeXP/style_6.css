@@ -102,7 +102,7 @@ body > div.headerArea {
         }
 
         table.watchLog td.title, table.watchLog th.title {
-            width: 30%;
+            width: 25%;
             padding: 2px 0px;
         }
 
@@ -127,7 +127,7 @@ body > div.headerArea {
             }
 
         table.watchLog td.status, table.watchLog th.status {
-            width: 20%;
+            width: 25%;
             padding: 2px 0px;
         }
 
