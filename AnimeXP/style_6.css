@@ -33,21 +33,25 @@ body > div.headerArea {
         }
 
             td.login > input.userId {
-                
+                ime-mode: disabled;
             }
 
             td.login > input.password {
-                
+                ime-mode: disabled;
             }
 
             td.login > input.loginBtn {
                 background-color: aquamarine;
                 vertical-align: middle;
-                font-weight: bold;
+                font-size: 120%;
             }
             
             td.login > span {
-                font-size: 100%;
+                font-size: 120%;
+            }
+
+            td.login > span.message {
+                font-size: small;
             }
 
         table.toolBox td.message {
@@ -81,10 +85,6 @@ body > div.headerArea {
         border-collapse: collapse;
     }
         
-        table.watchLog > tr.tableHeader {
-            
-        }
-        
         table.watchLog th > input {
             font-weight: bold; 
             font-size: 100%; 
@@ -93,7 +93,7 @@ body > div.headerArea {
         }
 
         table.watchLog td.category, table.watchLog th.category{
-            width: 5%;
+            width: 2%;
             padding: 2px 0px;
         }
 
@@ -103,12 +103,12 @@ body > div.headerArea {
         }
 
         table.watchLog td.whenStart, table.watchLog th.whenStart {
-            width: 10%;
+            width: 8%;
             padding: 2px 0px;
         }
 
         table.watchLog td.watchedEpisodeNum, table.watchLog th.watchEpisodeNum {
-            width: 30%;
+            width: 35%;
             padding: 2px 0px;
         }
 
