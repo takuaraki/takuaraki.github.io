@@ -51,15 +51,11 @@ body > div.headerArea {
             td.login > input.loginBtn {
                 background-color: aquamarine;
                 vertical-align: middle;
-                font-size: 120%;
+                font-size: 100%;
             }
             
             td.login > span {
-                font-size: 120%;
-            }
-
-            td.login > span.message {
-                font-size: small;
+                font-size: 100%;
             }
 
         table.toolBox td.message {
