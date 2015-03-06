@@ -12,23 +12,27 @@ body > div.headerArea {
     
 }
 
-    div.headerArea > div.title {
+    div.headerArea > table.title {
         width: 100%; 
         background-color: dodgerblue;  
         text-align: center;
         font-size: 300%;
         font-style: italic;
         font-weight: bold;
-        border-style: double;
-        border-color: gray;
+        border-style: solid;
+        border-color: #000000;
+        border-width: 2px;
     }
 
     div.headerArea > table.toolBox {
         width: 100%; 
         background-color: lavender;
         border-color: gray;
-        border: 1px #000000 solid;
+        border-style: solid;
+        border-color: #000000;
+        border-width: 2px;
         border-collapse: collapse;
+        margin: 5px 0px 0px;
     }
 
         table.toolBox td.login {
@@ -80,12 +84,21 @@ body > div.headerArea {
         text-align: center;
         width: 100%;
         background-color: #F9FFFF;
-        border: 1px #000000 solid;
+        border: 2px #000000 solid;
         border-collapse: collapse;
+        margin: 5px 0px 0px;
     }
 
-    table.watchLog tr, table.watchLog td, table.watchLog th {
+    table.watchLog tr, table.watchLog td {
         border: 1px #000000 solid;
+        border-collapse: collapse;
+        height: 50px;
+    }
+
+    table.watchLog th {
+        border-style: solid solid double;
+        border-color: #000000;
+        border-width: 1px 1px 3px;
         border-collapse: collapse;
         height: 50px;
     }
@@ -203,8 +216,12 @@ body > div.footerArea {
 
     div.footerArea > table.toolbox {
         width: 100%; 
+        height: 50px;
         background-color: lavender;
         border-color: gray;
-        border: 1px #000000 solid;
+        border-style: solid;
+        border-color: #000000;
+        border-width: 2px;
         border-collapse: collapse;
+        margin: 5px 0px 0px;
     }
