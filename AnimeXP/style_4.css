@@ -1,0 +1,192 @@
+body {
+    background-color: #FFFFF9;
+    font-family: sans-serif;
+}
+
+/* ヘッダー部分．ここはスクロールしても動かず，常に表示される */
+body > div.headerArea {
+    position: fixed !important;  
+    position: absolute;  
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+    div.headerArea > table.toolBox {
+        width: 100%; 
+        background-color: lavender;
+        border-color: gray;
+        margin: 0px 0px 0px;
+        border: 1px #000000 solid;
+        border-collapse: collapse;
+    }
+
+        table.toolBox td.login {
+            width: 95%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+            td.login > input.userId {
+                
+            }
+
+            td.login > input.password {
+                
+            }
+
+            td.login > input.loginBtn {
+                background-color: aquamarine;
+                height: 26px;
+                vertical-align: middle;
+                font-weight: bold;
+            }
+            
+            td.login > span {
+                font-size: 50%;
+                font-weight: bold;
+            }
+
+        table.toolBox td.update {
+            width: 5%;
+            margin: 0px;
+            padding: 0px;
+            text-align: right;
+        }
+
+            td.update > input.updateBtn {
+                background-color: gold;
+                height: 26px;
+                vertical-align: middle;
+                font-weight: bold; 
+            }
+
+/* コンテンツ部分．スクロールで動く部分 */
+
+    div.contentsArea > div.title {
+        width: 100%; 
+        background-color: dodgerblue;  
+        text-align: center;
+        font-size: 300%;
+        font-style: italic;
+        font-weight: bold;
+        border-style: double;
+        border-color: gray;
+    }
+
+    div.contentsArea > table.watchLog {
+        text-align: center;
+        width: 100%;
+        background-color: #F9FFFF;
+        border: 1px #000000 solid;
+        border-collapse: collapse;
+    }
+
+    table.watchLog tr, table.watchLog td, table.watchLog th {
+        border: 1px #000000 solid;
+        border-collapse: collapse;
+    }
+        
+        table.watchLog > tr.tableHeader {
+            
+        }
+        
+        table.watchLog th > input {
+            font-weight: bold; 
+            font-size: 100%; 
+            background-color: whitesmoke; 
+            width: 99%;
+        }
+
+        table.watchLog td.category, table.watchLog th.category{
+            width: 5%;
+            padding: 2px 0px;
+        }
+
+        table.watchLog td.title, table.watchLog th.title {
+            width: 30%;
+            padding: 2px 0px;
+        }
+
+        table.watchLog td.whenStart, table.watchLog th.whenStart {
+            width: 10%;
+            padding: 2px 0px;
+        }
+
+        table.watchLog td.watchedEpisodeNum, table.watchLog th.watchEpisodeNum {
+            width: 30%;
+            padding: 2px 0px;
+        }
+
+            td.watchedEpisodeNum input[type="button"] {
+                background-color: whitesmoke;
+            }
+
+            td.watchedEpisodeNum input[type="text"] {
+                text-align: right;
+            }
+
+        table.watchLog td.status, table.watchLog th.status {
+            width: 20%;
+            padding: 2px 0px;
+        }
+
+            td.status input.allWatched {
+                color: black; 
+                font-weight: bold;
+                background-color: aqua;
+                width:98%;
+                border-style: inset;
+            }
+
+            td.status input.nowWatching_on {
+                color: black;
+                font-weight: bold;
+                background-color: lightskyblue;
+                width:48%;
+                border-style: inset;
+            }
+            td.status input.nowWatching_off {
+                color: #444444;
+                background-color: gainsboro;
+                width:48%;
+            }
+
+            td.status input.stopWatching_on {
+                color: black;
+                font-weight: bold;
+                background-color: #FF82B2;
+                width:48%;
+                border-style: inset;
+            }
+            td.status input.stopWatching_off {
+                color: #444444;
+                background-color: gainsboro;
+                width:48%;
+            }
+
+            td.status input.toWatch_on {
+                color: black;
+                font-weight: bold;
+                background-color: aquamarine;
+                width:48%;
+                border-style: inset;
+            }
+            td.status input.toWatch_off {
+                color: #444444;
+                background-color: gainsboro;
+                width:48%;
+            }
+
+            td.status input.notWatch_on {
+                color: black;
+                font-weight: bold;
+                background-color: lightpink;
+                width:48%;
+                border-style: inset;
+            }
+            td.status input.notWatch_off {
+                color: #444444;
+                background-color: gainsboro;
+                width:48%;
+            }
