@@ -113,10 +113,12 @@ body > div.headerArea {
         }
 
             td.watchedEpisodeNum input[type="button"] {
+                font-size: 100%;
                 background-color: whitesmoke;
             }
 
             td.watchedEpisodeNum input[type="text"] {
+                font-size: 100%;
                 text-align: right;
             }
 
@@ -124,6 +126,10 @@ body > div.headerArea {
             width: 20%;
             padding: 2px 0px;
         }
+
+            td.status input {
+                font-size: 100%;
+            }
 
             td.status input.allWatched {
                 color: black; 
